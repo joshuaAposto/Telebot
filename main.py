@@ -30,7 +30,7 @@ class CreateBot:
     self.owner_name = owner_name
     self.owner_id = owner_id
     self.owner_links = owner_links
-    
+
     self.baseUrl = 'https://api.telegram.org'
     if not self.isValidToken():
       raise ValueError('Invalid bot token')
@@ -129,7 +129,7 @@ def login():
     OWNER_NAME = data.get('owner_name')
     OWNER_ID = data.get('owner_id')
     OWNER_LINKS = data.get('owner_links')
-    
+
     BOT = CreateBot(TOKEN, COMMANDS, owner_name=OWNER_NAME, owner_id=OWNER_ID, owner_links=OWNER_LINKS)
     tae = BOT.create()
     data = {
@@ -143,7 +143,7 @@ def login():
     return jsonify({"status": 'error', "message": str(e)}),403
 
 def start_flask():
-  app.run()
+  app.run(host='0.0.0.0', port=5000)
 
 def register_command(bot, name, func, info):
   f=info['commands']
@@ -172,7 +172,7 @@ def reg_cmd(bot,_):
   global alreadyLoad
   xil=list(filter(lambda file: file.endswith('.py') and file!='__init__.py',os.listdir('./modules/commands')))
   zil=list(filter(lambda file: file.endswith('.py') and file!='__init__.py',os.listdir('./modules/events')))
-  
+
   for file in xil:
     filepath = f'modules.commands.{os.path.splitext(file)[0]}'
     module = importlib.import_module(filepath)
@@ -230,9 +230,9 @@ def monitor():
 if __name__ == '__main__':
   flsk = threading.Thread(target=start_flask)
   flsk.start()
-  
+
   time.sleep(0.2)
   reg_cmd(None,None)
-  
+
   montr = threading.Thread(target=monitor)
   montr.start()
