@@ -20,7 +20,7 @@ ACTIVE_BOTS = {}
 
 class CreateBot:
   def __init__(self, token, commands, owner_name='Anonymous', owner_id=1234567890, owner_links=[]):
-    self.name = 'burat'
+    self.name = 'bulbul'
     self.id = None
     self.profile = 'https://i.imgur.com/tiJigvF.jpeg'
     self.token = token
