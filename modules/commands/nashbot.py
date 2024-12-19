@@ -5,7 +5,7 @@ def nashbot(msg, bot, i):
         return bot.send_message(msg.chat.id, "Please provide a query.")
     
     query = i.text.strip()
-    url = f'https://nash-api.onrender.com/api/nashbot?q={query}'
+    url = f'https://nash-api-vrx5.onrender.com/api/nashbot?q={query}'
     response = requests.get(url)
 
     if response.status_code == 200:

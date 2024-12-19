@@ -1,11 +1,11 @@
 import requests
 
-def mixtral(msg, bot, i):
+def gpt3(msg, bot, i):
     if not i.text or not i.text.strip():
         return bot.send_message(msg.chat.id, "Please provide a query.")
     
     query = i.text.strip()
-    url = f'https://nash-api-vrx5.onrender.com/api/mixtral-8x7b-32768?query={query}'
+    url = f'https://nash-api-vrx5.onrender.com/api/gpt3?query={query}'
     response = requests.get(url)
 
     if response.status_code == 200:
@@ -16,9 +16,9 @@ def mixtral(msg, bot, i):
         bot.send_message(msg.chat.id, "❌ Error: Unable to fetch data from the API.")
 
 config = {
-    "name": 'mixtral',
+    "name": 'gpt3',
     "credits": 'Joshua Apostol',
-    "usage": '/mixtral <query>',
-    "description": 'Chat with Mixtral AI',
-    "def": mixtral
+    "usage": '/gpt4 <query>',
+    "description": 'Chat with GPT-3.5',
+    "def": gpt3
 }

@@ -5,7 +5,7 @@ def gpt4(msg, bot, i):
         return bot.send_message(msg.chat.id, "Please provide a query.")
     
     query = i.text.strip()
-    url = f'https://nash-api.onrender.com/api/gpt4?query={query}'
+    url = f'https://nash-api-vrx5.onrender.com/api/gpt4?query={query}'
     response = requests.get(url)
 
     if response.status_code == 200:
