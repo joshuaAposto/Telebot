@@ -1,7 +1,7 @@
 import os
 
 def help(msg, bot, i):
-    command_files = [f for f in os.listdir('modules/commands') if f.endswith('.py') and f != 'help.py' and f != 'start.py']
+    command_files = [f for f in os.listdir('modules/commands') if f.endswith('.py') and f != 'help.py' and f != 'start.py' and f != '__init__.py']
     
     command_list = []
     for file in command_files:
